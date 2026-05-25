@@ -388,99 +388,122 @@ export default function SuitesSection() {
           <p className="text-xs text-gray-400 mt-2 font-mono">Click a floor plate to inspect its bespoke architecture</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center max-w-5xl mx-auto">
-          {/* Isometric Deck Visualization */}
-          <div className="md:col-span-5 flex flex-col items-center justify-center relative min-h-[460px] perspective-container pt-8">
-            <div className="flex flex-col-reverse items-center -space-y-24 w-full max-w-[280px]">
-              
-              {/* Standard Room Card (Ground) */}
-              <div 
-                onClick={() => setSelectedSuiteId("standard")}
-                className={`w-full h-44 rounded-2xl isometric-card cursor-pointer flex flex-col justify-end p-5 text-left border relative transition-all duration-300 ${
-                  selectedSuiteId === "standard" 
-                  ? "bg-[#D4AF37] text-black border-[#D4AF37] scale-[1.05] z-30 active" 
-                  : "bg-[#181818]/90 text-gray-300 border-white/5 hover:bg-[#222] scale-100 z-10 hover:text-white"
-                }`}
-              >
-                <div className="absolute top-4 left-4 flex items-center gap-1 bg-black/40 backdrop-blur-sm px-2.5 py-0.5 rounded-md text-[9px] uppercase tracking-wider text-white">
-                  Ground Floor
-                </div>
-                <div>
-                  <h4 className="font-serif text-base font-semibold leading-tight">Heritage Studio</h4>
-                  <p className="text-[10px] opacity-85 font-mono mt-0.5">₦185,000 / Night</p>
-                </div>
-              </div>
+        {/* Floor selector (side-by-side & straight) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto mb-10 text-left">
+          {/* Standard Room Card (Ground) */}
+          <button
+            key="standard"
+            type="button"
+            onClick={() => setSelectedSuiteId("standard")}
+            className={`rounded-xl p-5 text-left border cursor-pointer transition-all duration-300 relative flex flex-col justify-between min-h-[140px] ${
+              selectedSuiteId === "standard"
+                ? "bg-[#D4AF37] text-black border-[#D4AF37] shadow-[0_8px_24px_rgba(212,175,55,0.2)]"
+                : "bg-[#121212] text-gray-300 border-white/5 hover:bg-white/5 hover:border-white/10"
+            }`}
+          >
+            <div className="flex justify-between items-start w-full">
+              <span className={`text-[9px] uppercase font-mono tracking-wider px-2 py-0.5 rounded font-bold ${
+                selectedSuiteId === "standard" ? "bg-black/10 text-black animate-pulse" : "bg-white/5 text-gray-400"
+              }`}>
+                Ground Floor
+              </span>
+              <span className="text-[10px] font-mono font-bold opacity-90">₦185,000 / Night</span>
+            </div>
+            <div className="mt-4">
+              <h4 className="font-serif text-base font-bold leading-tight">Heritage Studio</h4>
+              <p className={`text-[10px] mt-1 font-sans ${selectedSuiteId === "standard" ? "text-gray-800" : "text-gray-400"}`}>
+                Coastal details &amp; premium hand-carved Yoruba wood accents.
+              </p>
+            </div>
+          </button>
 
-              {/* Deluxe Room Card (Mid) */}
-              <div 
-                onClick={() => setSelectedSuiteId("deluxe")}
-                className={`w-full h-44 rounded-2xl isometric-card cursor-pointer flex flex-col justify-end p-5 text-left border relative transition-all duration-300 ${
-                  selectedSuiteId === "deluxe" 
-                  ? "bg-[#D4AF37] text-black border-[#D4AF37] scale-[1.05] z-30 active" 
-                  : "bg-[#181818]/90 text-gray-300 border-white/5 hover:bg-[#222] scale-100 z-20 hover:text-white"
-                }`}
-              >
-                <div className="absolute top-4 left-4 flex items-center gap-1 bg-black/40 backdrop-blur-sm px-2.5 py-0.5 rounded-md text-[9px] uppercase tracking-wider text-white">
-                  Mid-Level
-                </div>
-                <div>
-                  <h4 className="font-serif text-base font-semibold leading-tight">Sky Garden Room</h4>
-                  <p className="text-[10px] opacity-85 font-mono mt-0.5">₦320,000 / Night</p>
-                </div>
-              </div>
+          {/* Deluxe Room Card (Mid) */}
+          <button
+            key="deluxe"
+            type="button"
+            onClick={() => setSelectedSuiteId("deluxe")}
+            className={`rounded-xl p-5 text-left border cursor-pointer transition-all duration-300 relative flex flex-col justify-between min-h-[140px] ${
+              selectedSuiteId === "deluxe"
+                ? "bg-[#D4AF37] text-black border-[#D4AF37] shadow-[0_8px_24px_rgba(212,175,55,0.2)]"
+                : "bg-[#121212] text-gray-300 border-white/5 hover:bg-white/5 hover:border-white/10"
+            }`}
+          >
+            <div className="flex justify-between items-start w-full">
+              <span className={`text-[9px] uppercase font-mono tracking-wider px-2 py-0.5 rounded font-bold ${
+                selectedSuiteId === "deluxe" ? "bg-black/10 text-black animate-pulse" : "bg-white/5 text-gray-400"
+              }`}>
+                Mid-Level
+              </span>
+              <span className="text-[10px] font-mono font-bold opacity-90">₦320,000 / Night</span>
+            </div>
+            <div className="mt-4">
+              <h4 className="font-serif text-base font-bold leading-tight">Sky Garden Room</h4>
+              <p className={`text-[10px] mt-1 font-sans ${selectedSuiteId === "deluxe" ? "text-gray-800" : "text-gray-400"}`}>
+                Elevated canopy views with integrated botanical private veranda.
+              </p>
+            </div>
+          </button>
 
-              {/* Executive Suite (Penthouse) */}
-              <div 
-                onClick={() => setSelectedSuiteId("executive")}
-                className={`w-full h-44 rounded-2xl isometric-card cursor-pointer flex flex-col justify-end p-5 text-left border relative transition-all duration-300 ${
-                  selectedSuiteId === "executive" 
-                  ? "bg-[#D4AF37] text-black border-[#D4AF37] scale-[1.05] z-30 active" 
-                  : "bg-[#181818]/90 text-gray-300 border-white/5 hover:bg-[#222] scale-100 z-10 hover:text-white"
-                }`}
-              >
-                <div className="absolute top-4 left-4 flex items-center gap-1 bg-black/40 backdrop-blur-sm px-2.5 py-0.5 rounded-md text-[9px] uppercase tracking-wider text-white">
-                  Penthouse Zenith
-                </div>
-                <div>
-                  <h4 className="font-serif text-base font-semibold leading-tight">Lagos Zenith Suite</h4>
-                  <p className="text-[10px] opacity-85 font-mono mt-0.5">₦750,000 / Night</p>
-                </div>
-              </div>
+          {/* Executive Suite (Penthouse) */}
+          <button
+            key="executive"
+            type="button"
+            onClick={() => setSelectedSuiteId("executive")}
+            className={`rounded-xl p-5 text-left border cursor-pointer transition-all duration-300 relative flex flex-col justify-between min-h-[140px] ${
+              selectedSuiteId === "executive"
+                ? "bg-[#D4AF37] text-black border-[#D4AF37] shadow-[0_8px_24px_rgba(212,175,55,0.2)]"
+                : "bg-[#121212] text-gray-300 border-white/5 hover:bg-white/5 hover:border-white/10"
+            }`}
+          >
+            <div className="flex justify-between items-start w-full">
+              <span className={`text-[9px] uppercase font-mono tracking-wider px-2 py-0.5 rounded font-bold ${
+                selectedSuiteId === "executive" ? "bg-black/10 text-black animate-pulse" : "bg-white/5 text-gray-400"
+              }`}>
+                Penthouse Zenith
+              </span>
+              <span className="text-[10px] font-mono font-bold opacity-90">₦750,000 / Night</span>
+            </div>
+            <div className="mt-4">
+              <h4 className="font-serif text-base font-bold leading-tight">Lagos Zenith Suite</h4>
+              <p className={`text-[10px] mt-1 font-sans ${selectedSuiteId === "executive" ? "text-gray-800" : "text-gray-400"}`}>
+                Ultra-private heights with dual ocean views &amp; skylit sound bath.
+              </p>
+            </div>
+          </button>
+        </div>
 
+        {/* Room Display Context - Side-by-Side Presentation */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-5xl mx-auto text-left">
+          <div className="md:col-span-7 relative overflow-hidden rounded-2xl aspect-[16/10] sm:aspect-[16/9] shadow-2xl border border-white/5 p-1 bg-white/5">
+            <div className="w-full h-full rounded-xl overflow-hidden">
+              <img
+                alt={selectedSuite.name}
+                className="w-full h-full object-cover transition-all duration-500 filter brightness-90"
+                src={selectedSuite.image}
+              />
+            </div>
+            <div className="absolute top-6 right-6 bg-[#080808]/90 backdrop-blur-md px-4 py-1.5 rounded-sm border border-white/10 text-white font-mono text-sm shadow-md">
+              {selectedSuite.priceFormatted} <span className="text-[10px] text-gray-400">/ Night</span>
             </div>
           </div>
 
-          {/* Room Display Context */}
-          <div className="md:col-span-7 space-y-6 text-left">
-            <div className="relative overflow-hidden rounded-2xl aspect-[16/9] shadow-2xl border border-white/5 p-1 bg-white/5">
-              <div className="w-full h-full rounded-xl overflow-hidden">
-                <img
-                  alt={selectedSuite.name}
-                  className="w-full h-full object-cover transition-all duration-500 filter brightness-90"
-                  src={selectedSuite.image}
-                />
-              </div>
-              <div className="absolute top-6 right-6 bg-[#080808]/90 backdrop-blur-md px-4 py-1.5 rounded-sm border border-white/10 text-white font-mono text-sm shadow-md">
-                {selectedSuite.priceFormatted} <span className="text-[10px] text-gray-400">/ Night</span>
-              </div>
-            </div>
-
+          <div className="md:col-span-5 space-y-5 text-left">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-xs uppercase font-semibold text-[#D4AF37] tracking-widest">{selectedSuite.elevation}</span>
+                <span className="text-[10px] uppercase font-bold text-[#D4AF37] tracking-widest">{selectedSuite.elevation}</span>
                 <span className="w-1 h-1 rounded-full bg-gray-600" />
-                <span className="text-xs uppercase font-medium text-gray-400">{selectedSuite.tier}</span>
+                <span className="text-[10px] uppercase font-bold text-gray-400">{selectedSuite.tier}</span>
               </div>
               <h3 className="font-serif text-2xl md:text-3xl font-semibold text-white">{selectedSuite.name}</h3>
               <p className="text-xs text-gray-400 leading-relaxed font-light">{selectedSuite.description}</p>
             </div>
 
-            <div>
+            <div className="border-t border-white/5 pt-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-[#D4AF37] mb-2.5">Bespoke Inclusions:</p>
-              <div className="grid grid-cols-2 gap-y-2 gap-x-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
                 {selectedSuite.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-xs text-gray-300">
-                    <Check className="w-3.5 h-3.5 text-hotel-gold shrink-0" />
+                    <Check className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -588,19 +611,19 @@ export default function SuitesSection() {
               {/* Status indicators */}
               <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-[9px] text-gray-400 pb-1">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 bg-[#131313] border border-white/10 rounded" />
+                  <span className="w-2.5 h-2.5 bg-[#131313] border border-white/5 rounded" />
                   <span>Available</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 bg-red-950/20 border border-red-900/40 rounded" />
+                  <span className="w-2.5 h-2.5 bg-red-950/10 border border-red-900/20 rounded" />
                   <span>Reserved / Taken</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 bg-[#D4AF37] rounded" />
-                  <span className="text-white">Peak Selection</span>
+                  <span className="w-2.5 h-2.5 bg-[#D4AF37] rounded-full" />
+                  <span className="text-white">Check-in / Check-out</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 bg-[#D4AF37]/25 border border-[#D4AF37]/45 rounded" />
+                  <span className="w-3.5 h-2.5 bg-[#D4AF37]/15 border-y border-[#D4AF37]/20" />
                   <span>Selected Range</span>
                 </div>
               </div>
@@ -616,18 +639,25 @@ export default function SuitesSection() {
 
                 {/* Calendar Days */}
                 {generateCalendarDays().map((day) => {
-                  let cellClasses = "relative text-[10px] py-2 rounded font-mono font-medium transition-all flex flex-col items-center justify-center select-none w-full ";
+                  let cellClasses = "relative text-[10px] py-2 font-mono font-medium transition-all flex flex-col items-center justify-center select-none w-full h-9 ";
                   
                   if (day.isReserved) {
-                    cellClasses += "bg-red-950/15 border border-red-900/40 text-red-400/80 cursor-not-allowed opacity-70";
+                    cellClasses += "bg-red-950/10 border border-red-900/20 text-red-400/50 cursor-not-allowed opacity-50 rounded-md";
                   } else if (day.isCheckIn || day.isCheckOut) {
-                    cellClasses += "bg-[#D4AF37] text-black font-semibold border border-[#D4AF37] cursor-pointer shadow-[0_0_12px_rgba(212,175,55,0.25)] z-10";
+                    cellClasses += "bg-[#D4AF37] text-black font-semibold cursor-pointer shadow-[0_3px_12px_rgba(212,175,55,0.3)] z-10 ";
+                    if (day.isCheckIn && day.isCheckOut) {
+                      cellClasses += "rounded-full";
+                    } else if (day.isCheckIn) {
+                      cellClasses += checkOut ? "rounded-l-full rounded-r-none" : "rounded-full";
+                    } else if (day.isCheckOut) {
+                      cellClasses += "rounded-r-full rounded-l-none";
+                    }
                   } else if (day.isSelectedRange) {
-                    cellClasses += "bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/35 cursor-pointer";
+                    cellClasses += "bg-[#D4AF37]/15 text-[#D4AF37] border-y border-[#D4AF37]/20 cursor-pointer rounded-none";
                   } else {
-                    cellClasses += "bg-[#131313] hover:bg-white/5 border border-white/10 hover:border-gray-500 cursor-pointer ";
+                    cellClasses += "bg-[#131313] hover:bg-white/5 border border-white/5 hover:border-[#D4AF37]/40 cursor-pointer rounded-md ";
                     if (!day.isCurrentMonth) {
-                      cellClasses += "text-gray-600 opacity-30 ";
+                      cellClasses += "text-gray-600 opacity-25 ";
                     } else {
                       cellClasses += "text-gray-300 ";
                     }
