@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  
+  --color-primary: #D4AF37;
+  --color-hotel-gold: #D4AF37;
+  --color-hotel-gold-light: #F5D061;
+  --color-hotel-sand: #0c0c0c;
+  --color-hotel-clay: #151515;
+  --color-hotel-charcoal: #080808;
+  --color-hotel-charcoal-muted: #a1a1aa;
+  --color-hotel-border: rgba(255, 255, 255, 0.08);
+  
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.isometric-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotateX(51deg) rotateZ(43deg);
+  box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.isometric-card:hover {
+  transform: rotateX(51deg) rotateZ(43deg) translateZ(20px);
+  box-shadow: -40px 40px 80px rgba(212, 175, 55, 0.15);
+}
+
+.isometric-card.active {
+  transform: rotateX(51deg) rotateZ(43deg) translateZ(40px);
+  border: 2px solid #D4AF37;
+}
+
+.perspective-container {
+  perspective: 2000px;
+}
+

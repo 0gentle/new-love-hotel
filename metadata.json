@@ -1,0 +1,6 @@
+{
+  "name": "New Love International Hotel",
+  "description": "An interactive digital portal for the New Love International Hotel in Lagos, Nigeria. Explore and book custom suites, schedule bespoke wellness classes, arrange grand events, and chat with our real-time AI Travel Concierge.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
